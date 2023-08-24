@@ -3,25 +3,112 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --colors-blue: #635fc7;
+  --colors-lightBlue: #aba4ff;
+  --colors-black: #000112;
+  --colors-gray-1: #20212c;
+  --colors-gray-2: #282c37;
+  --colors-gray-3: #3e3f4e;
+  --colors-gray-4: #8282FA3;
+  --colors-gray-5: #e4ebfa;
+  --colors-gray-6: #f4f7fd;
+  --colors-white: #ffffff;
+  --colors-red: #ea5555;
+  --colors-lightRed: #ff9898;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TEXT */
+.heading-xl {
+  @apply text-xl font-bold leading-xl;
+}
+
+.heading-lg {
+  @apply text-lg font-bold leading-lg;
+}
+
+.heading-md {
+  @apply text-md font-bold leading-md;
+}
+
+.heading-sm {
+  @apply text-xs font-bold leading-md tracking-sm;
+}
+
+.body-lg {
+  @apply text-sm font-medium leading-lg;
+}
+
+.body-md {
+  @apply text-xs font-bold leading-sm;
+}
+
+/*CHECK BOX*/
+
+#checkbox:checked + label {
+  background-color: var(--colors-blue);
+  border: 1px solid var(--colors-blue);
+}
+
+#checkbox + label::before {
+  position: absolute;
+  content: '';
+  height: 5px;
+  width: 2px;
+  top: 7px;
+  left: 3px;
+  background-color: transparent;
+  transform: rotate(-45deg);
+  transition: 100ms ease-in-out;
+}
+
+#checkbox + label::after {
+  position: absolute;
+  content: '';
+  height: 10px;
+  width: 2px;
+  top: 2.5px;
+  right: 5px;
+  background-color: transparent;
+  transform: rotate(45deg);
+  transition: 100ms ease-in-out;
+}
+
+#checkbox:checked + label::before,
+#checkbox:checked + label::after {
+  background-color: white;
+}
+
+.dropDown {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  left: 0;
+  top: calc(100% + 0.5rem);
+  background-color: white;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: 300ms ease-in-out;
+}
+
+.dropDown.active {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: auto;
 }
