@@ -61,7 +61,7 @@ const Dropdown = ({
     <div className='relative w-full max-w-dropdown flex flex-col'>
       <label className='mb-2 capitalize body-lg text-mediumGrey'>{label}</label>
       <button
-        className='relative w-full h-dropdown px-4 capitalize body-lg text-black bg-white border border-mediumGrey-25 rounded-sm flex justify-between items-center'
+        className='relative w-full h-dropdown px-4 capitalize body-lg text-black bg-white border border-mediumGrey-25 rounded-sm flex justify-between items-center focus:border-blue'
         onClick={() => setIsOpen((prev) => !prev)}
         data-dropdown
       >

@@ -20,7 +20,7 @@ const config: Config = {
         dropdown: '350px',
         button: '255px',
       },
-      width: { checkbox: '350px', textField: '350px' },
+      width: { checkbox: '350px', textField: '350px', sidebar: '300px' },
       height: {
         'button-lg': '48px',
         'button-sm': '40px',
